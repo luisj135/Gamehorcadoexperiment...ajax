@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JUEGO DEL AHORCADO</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="tipo_contenido"  content="text/html;" http-equiv="content-type" charset="utf-8">	
+	<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+	<link href="css/style.css" rel="stylesheet" media="screen">
+	<link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.chrony.min.js"></script>
+</head>
+<body>
+	<section class="container">
+		<section class="inicio_selec">
+			<form class="form-signin">
+				<div id="nombrelabel">
+					<h2>Seleccione una Opción de juego</h2>
+				</div>
+				<div id="botton_solo">
+					<button class="btn btn-large btn-primary" type="submit">Un Jugador</button>
+				</div>
+				<div id="boton_multi">
+					<button class="btn btn-large btn-primary" type="submit">Multijugador</button>
+				</div>
+			</form>
+		</section>
+		<section class="inicio">
+			<form class="form-signin">
+				<div id="nombrelabel">
+					<h2>Digite nombre para jugar</h2>
+				</div>
+				<div id="nombreinput">
+					<input type="text" class="input-block-level" name="fname" placeholder="Nombre.....">
+				</div>
+				<button class="btn btn-large btn-primary" type="submit">Entrar</button>
+			</form>
+		</section>
+		<section class="palabra">
+			<form>
+				<div id="nombrelabel">
+					<h2>Digite una palabra de maximo 8 letras para jugar</h2>
+				</div>
+				<div id="nombreinput">
+					<input type="text" name="fname" placeholder="Palabra.....">
+				</div>
+			</form>
+		</section>
+		<section class="game">
+			<section class="container-fluid">
+				<section class="row-fluid">
+					<section class="span3">
+						<section class="Nombre">
+							<section class="form-signin">
+								<div class="enlace_ret">
+								</divv>
+							</section>
+							<section class="form-signin">
+									<section class="label_ti">
+										<h4>Tiempo de Restante de Juego:</h4>
+									</section>
+									<section id="time">
+									</section>
+							</section>
+							<section class="form-signin">
+								<section class="titulo_letras">
+									<h3>Letras usadas en el juego</h3>
+								</section>
+								<section id="letrasusadas">
+								</section>
+							</section>
+						</section>
+					</section>
+					<section class="span6">
+						<h4>Juego el Ahorcado</h4>
+						<section class="form-signin">
+							<section id="grafico">
+								<section id="parte_cuerda">
+								</section>
+								<section id="parte_cabeza">
+								</section>
+								<section id="parte_cara">
+								</section>
+								<section id="parte_brazo_izq">
+								</section>
+								<section id="parte_brazo_derecho">
+								</section>
+								<section id="parte_torzo">
+								</section>
+								<section id="parte_pierna_izq">
+								</section>
+								<section id="parte_pierna_dere">
+								</section>
+								<section id="parte_inicial">
+								</section>
+								<section id="parte_final">
+								</section>
+							</section>
+						</section>
+						<h4>Adivina la palabra en el  menor tiempo posible</h4>
+						<section class="letras_palabra">
+						</section>
+					</section>
+					<section class="span3">
+						<section class="form-signin">
+							<section id="contente">
+									<div id="titulo">
+										<h3>Clasificación de usuarios por puntos</h3>
+									</div>
+									<section class="filas">
+									</section>
+							</section>
+						</section>
+					</section>
+				</section>
+			</section>
+ 
+			<!-- Modal aler game over -->
+			<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div class="modal-header">
+			    <h3 id="myModalLabel">Fin del Juego </h3>
+			    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+			  </div>
+			  <div class="modal-body">
+			    <p>Completaste el numero de intentos para esta palabra, reinicia el juego e intenta nuevamente…</p>
+			  </div>
+			  <div class="modal-footer">
+			    <button class="btn boton_inicio">Volver al Inicio</button>
+			    <button class="btn btn-primary boton_palabra">Nueva Palabra</button>
+			  </div>
+			</div>
+
+			<div id="myModal_fin" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div class="modal-header">
+			    <h3 id="myModalLabel">Felicidades Ganazte el juego</h3>
+			    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+			  </div>
+			  <div class="modal-body">
+			    <p>Completaste todas las letras de esta palabra, reinicia el juego para segir jugando…</p>
+			  </div>
+			  <div class="modal-footer">
+			    <button class="btn boton_inicio_fin">Volver al Inicio</button>
+			    <button class="btn btn-primary boton_palabra_fin">Nueva Palabra</button>
+			  </div>
+			</div>
+
+			<div id="myModal_time" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div class="modal-header">
+			    <h3 id="myModalLabel">Fin del juego</h3>
+			    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+			  </div>
+			  <div class="modal-body">
+			    <p>Se te acabo el tiempo, inicia el juego para segir jugando…</p>
+			  </div>
+			  <div class="modal-footer">
+			    <button class="btn btn-primary boton_inicio_time">Volver al Inicio</button>
+			  </div>
+			</div>
+		</section>
+	</section>
+
+	<script src="js/bootstrap.js"></script>
+	<script src="js/bootstrap-modal.js"></script>
+	<script src="js/intera.js"></script>
+</body>
+</html>
